@@ -1,0 +1,73 @@
+:host {
+    display: block;
+}
+
+.title-bar {
+    flex-grow: 1;
+    display: flex;
+    min-height: 80px;
+    background-color: #0c1d37;
+}
+
+.menu-area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+.title-bar-small {
+    flex-grow: 1;
+    display: flex;
+    min-height: 45px;
+    background-color: #0c1d37;    
+}
+
+.small-image-holder {
+    flex-grow: 1;
+}
+
+.small-image {
+    height: 50px;
+}
+
+span {
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+#logo {
+    margin-top: 5px;
+    background-image: url('../../assets/main-logo.png');
+    height: 75px;
+    width: 325px;
+}
+
+#logo:hover {
+    margin-top: 5px;    
+    background-image: url('../../assets/main-logo_lit.png');
+    height: 75px;
+    width: 325px;
+}
+
+#small_logo {
+    background-image: url('../../assets/small-logo.png');
+    height: 45px;
+    width: 194px;
+}
+
+#small_logo:active {
+    background-image: url('../../assets/small-logo_lit.png');
+    height: 45px;
+    width: 194px;
+}
+
+.glyphicon-menu-hamburger:hover {
+    color: #4dff00;
+}
+
+.glyphicon-option-vertical:hover {
+    color: #4dff00;
+}

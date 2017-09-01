@@ -1,0 +1,13 @@
+:host {
+    padding-left: 10px;
+    padding-top: 4px;
+    color: #ffffff;
+    background-color: #0c1d37;
+    min-height: 25px;
+}
+
+#footer {
+    font-size: 14px;
+    margin-left: 20px;
+    text-align: left;
+}

@@ -1,0 +1,64 @@
+:host {
+    min-height: 50px; 
+    text-align: right; 
+    padding-top: 5px;
+    color: #c0c0c0;
+}
+
+div {
+    display: inline;
+    margin-left: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-image {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+span.glyphicon {
+    margin-left: 4px;
+    font-size: 11px;
+}
+
+#login {
+    font-size: 18px;
+    margin-left: 12px;
+    cursor: pointer;
+    margin-right: 12px;    
+}
+
+#login:hover{
+    color: #4dff00;
+}
+
+#logout {
+    font-size: 18px;    
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+#logout:hover{
+    color: #4dff00;
+}
+
+#lang:hover {
+    color: #4dff00;
+}
+
+#flag {
+    background-image: url('../../assets/us-flag-bw.png');
+    width: 37px;
+    height: 25px;
+}
+
+#flag:hover {
+    background-image: url('../../assets/us-flag_lit.png');
+    width: 37px;
+    height: 25px;
+}

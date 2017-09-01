@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div id="header" class="row">
+      <h3>Job Admin</h3>
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-md-12"> -->
+        <table id="jobList">
+          <thead>
+            <tr>
+              <th style="width: 50px">Id</th>
+              <th style="width: 250px">Title</th>
+              <th style="width: 150px">Type</th>
+              <th style="width: 150px">Salary</th>
+              <th style="width: 200px">Employer</th>
+              <th style="width: 185px"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="jobRow" *ngFor="let row of jobs">
+              <td>{{ row.id }}</td>
+              <td>{{ row.title}}</td>
+              <td>{{ row.type }}</td>
+              <td>{{ row.salary}}</td>
+              <td>{{ row.employer }}</td>
+              <td *ngIf="row.id != deleteId">
+                <!-- <button class="btn btn-sm btn-primary" (click)="showJobDetail(row.id)">
+                  Detail
+              </button>&nbsp; -->
+                <button class="btn btn-sm btn-warning" (click)="editJob(row.id)">
+                  Edit
+              </button>&nbsp;&nbsp;
+                <button class="btn btn-sm btn-danger" (click)="deleteJobQuestion(row.id)">
+                  Delete
+              </button>
+              </td>
+              <td *ngIf="row.id === deleteId && !isDeleting">
+                Delete this Job?
+                <button class="btn btn-sm" (click)="cancelDelete()">Cancel</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteJob(row.id)">Delete</button>
+                <p *ngIf="deleteError">{{ deleteError }}</p>
+              </td>
+              <td *ngIf="row.id === deleteId && isDeleting">
+                Deleting...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- </div> -->
+  </div>
+  <div id="createBtn">
+    <button class="btn btn-primary" (click)="createJob()">Add Job</button>
+  </div>  
+
+</div>

@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+:host(.vertical-menu) {
+    display: inline-block;
+    width: 200px;
+    padding-left: 5px;
+    flex-grow: 0;
+    background-color: #465263;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+button {
+    margin-top: 20px;
+}
+
+button.horizontal {
+    margin-left: 20px;
+    margin-bottom: 2px; 
+}
+
+/* .glyphicon-menu-up:hover {
+    background-color: #4dff00;    
+    color: #001028;
+}
+
+.glyphicon-menu-left:hover {
+    background-color: #4dff00;    
+    color: #001028;
+} */
+
+.btn-sm:hover {
+    background-color: #4dff00;    
+    color: #0c1d37;
+}

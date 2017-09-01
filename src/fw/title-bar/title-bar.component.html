@@ -1,0 +1,21 @@
+<!--Small Screen Title Bar-->
+<div *screenBelowLarge class="title-bar-small">
+  <span class="glyphicon glyphicon-menu-hamburger"
+    (click)="menuService.toggleLeftSideMenu()">
+  </span>
+  <div class="small-image-holder">
+     <a href="http://localhost:4200"><div id="small_logo"></div></a>
+  </div>
+  <span class="glyphicon glyphicon-option-vertical"></span>
+</div>
+
+<!--Large Screen Title Bar-->
+<div *screenLarge class="title-bar">
+  <a href="http://localhost:4200"><div id="logo"></div></a>
+  <div class="menu-area">
+    <fw-top-bar>
+    </fw-top-bar>
+    <fw-menu *ngIf="!menuService.isVertical">
+    </fw-menu>
+  </div>
+</div>
