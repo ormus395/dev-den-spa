@@ -19,16 +19,16 @@ export class JobService {
   }
 
   //TODO Refactor
-  // getJob(id) {
-  //   let headers = new Headers();
-  //   headers.append("Content-Type", "application/json");
-  //   headers.append('Authorization', localStorage.getItem('id_token'));    
-  //   return this.http
-  //     .get("http://localhost:3000/jobs/" + id, {
-  //       headers: headers
-  //     })
-  //     .map(res => res.json());
-  // }
+  getJob(id) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append('Authorization', localStorage.getItem('id_token'));    
+    return this.http
+      .get("http://localhost:3000/jobs/" + id, {
+        headers: headers
+      })
+      .map(res => res.json());
+  }
 
   addJob(job) {
     let headers = new Headers();

@@ -14,7 +14,12 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router
-  ) { }
+  ) {
+    this.authService.getProfile().subscribe(data => {
+      console.log(data.user);
+      this.user = data.user;
+    });
+   }
 
   ngOnInit() {
 
@@ -22,6 +27,5 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authService.logout();
-    return false;
   }
 }
