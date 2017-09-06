@@ -13,7 +13,8 @@ import { AuthService } from '../services/auth.service';
 export class RegisterUserComponent implements OnInit{
   message: string;
 
-  name: string;
+  fname: string;
+  lname: string;
   username: string;
   role: string;
   email: string;
@@ -28,7 +29,8 @@ export class RegisterUserComponent implements OnInit{
 
   onRegister() {
     const user = {
-      name: this.name,
+      fname: this.fname,
+      lname: this.lname,
       username: this.username,
       role: this.role,
       email: this.email,

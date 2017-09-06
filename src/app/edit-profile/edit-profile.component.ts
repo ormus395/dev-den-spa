@@ -11,7 +11,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class EditProfileComponent implements OnInit {
   user: Object;
-  name: string;
+  fname: string;
+  lname: string;
   username: string;
   role: string;
   email: string;
@@ -21,27 +22,28 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getProfile().subscribe(data => {
-      console.log(data.user);
+      console.log("load: "+data.user);
       this.user = data.user;
     });
   }
 
   onSubmit() {
     const user = {
-      name: this.name,
+      fname: this.fname,
+      lname: this.lname,
       username: this.username, 
       email: this.email,
       role: this.role
     };
       this.authService.updateUser(user).subscribe(user => {
-        console.log(user);
+        console.log("update: "+user);
         this.router.navigate(["/profile"]);
     });
   }
 
   onDelete() {
     this.authService.deleteUser().subscribe(data => {
-      // console.log(data);
+      console.log("delete: "+data);
       localStorage.clear();
       this.router.navigate(['/register']);
     })

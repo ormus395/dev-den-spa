@@ -15,6 +15,7 @@ export class JobAdminComponent {
   deleteError: string;
   deleteId: number;
   isDeleting = false;
+  message: string;
 
   constructor(private jobService: JobService, 
               private router: Router) {
@@ -32,12 +33,15 @@ export class JobAdminComponent {
   title: string;
   type: string;
   salary: string;
+  author: string;
   details: string;
+
   createJob() {
     const job = {
       title: this.title,
       type: this.type,
       salary: this.salary,
+      author: this.author,
       details: this.details
     }
 
@@ -45,7 +49,7 @@ export class JobAdminComponent {
       console.log(localStorage.getItem('id_token'));
       console.log(data);
       if(data.success) {
-        alert('Job Posted')
+        this.message = 'Job Posted';
         this.router.navigate(['/dashboard']);
       }
     })
@@ -55,7 +59,7 @@ export class JobAdminComponent {
     onDeleteClick(id){
         this.jobService.deleteJob(id).subscribe(data => {
           console.log(localStorage.getItem('id_token'));
-          console.log(data);
+          console.log("delete: "+data);
         })
     }
 

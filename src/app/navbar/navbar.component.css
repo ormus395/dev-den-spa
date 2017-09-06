@@ -22,12 +22,22 @@
     margin-top: 20px;
 }
 
-.navbar-text:hover {
+#navbar-text {
+    margin-top: 22px;
+    font-style: bold;
+    color: #4dff00;
+    cursor: pointer;
+}
+
+.glyphicon:hover {
     color: #4dff00;
 }
 
-p {
-    margin-top: 36px;
+nav {
+    text-align: center;
+}
+nav:hover {
+    color: #4dff00;
 }
 
 ul.nav a:hover { 
@@ -67,15 +77,6 @@ span {
     font-size: 25px;
     line-height: 50px;
 }
-
-.glyphicon:hover {
-    color: #4dff00;
-}
-
-nav:hover {
-    color: #4dff00;
-}
-
 
 #logo {
     margin-top: 5px;

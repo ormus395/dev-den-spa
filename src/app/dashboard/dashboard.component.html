@@ -16,15 +16,15 @@
         <thead>
           <tr>
             <th style="width: 250px">Name</th>
+            <th style="width: 250px">Email</th>            
             <th style="width: 150px">User Type</th>
-            <th style="width: 250px">Email</th>
           </tr>
         </thead>
         <tbody>
           <tr id="userRow" *ngFor="let row of users">
-            <td>{{ row.name}}</td>
-            <td>{{ row.role}}</td>
+            <td>{{ row.fname}} {{ row.lname}}</td>
             <td>{{ row.email }}</td>
+            <td>{{ row.role}}</td>            
           </tr>
         </tbody>
       </table>
@@ -38,6 +38,7 @@
             <th style="width: 250px">Title</th>
             <th style="width: 150px">Type</th>
             <th style="width: 150px">Salary</th>
+            <th style="width: 150px">Employer</th>            
           </tr>
         </thead>
         <tbody>
@@ -45,6 +46,7 @@
             <td>{{ row.title}}</td>
             <td>{{ row.type }}</td>
             <td>{{ row.salary}}</td>
+            <td>{{ row.author}}</td>            
           </tr>
         </tbody>
       </table>

@@ -8,7 +8,7 @@
             <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span>Register</a></li>             
             <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>       
             <li><a (click)="logout()" routerLink="/login"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li> 
-            <li><p class="navbar-text">User: {{user.name}}</p></li>                                       
+            <li><a id="navbar-text" routerLink="/profile">Logged in: {{user.fname}} {{user.lname}}</a></li>                                      
         </ul>
         <ul class="nav navbar-nav navbar-right">      
             <li><a routerLink="/dashboard"><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li> 

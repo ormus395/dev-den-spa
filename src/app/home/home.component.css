@@ -1,13 +1,41 @@
-.parallax { 
-    /* The image used */
-    /* background-image: url("img_parallax.jpg"); */
+.parallax-top {
+  
+    background-image: url("https://image.ibb.co/jxcwEk/background_11.png");
 
-    /* Set a specific height */
     height: 500px; 
 
-    /* Create the parallax scrolling effect */
+    /* parallax scrolling effect */
     background-attachment: fixed;
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#bridge {
+    text-align: center;
+    color: #ffffff;    
+}
+
+#dev {
+    text-align: center;
+    font-weight: bold;
+    color: #0c1d37;    
+}
+
+.topSpace {
+    background-color: #0c1d37;
+}
+
+#reg {
+    float: left;
+}
+
+#log {
+    float: right;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+    color: #0c1d37;   
 }
