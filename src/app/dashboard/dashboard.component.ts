@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Router } from "@angular/router";
-import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { tokenNotExpired } from "angular2-jwt";
 
 import { JobService } from '../services/job.service';
-import { UserService } from "../services/user.service";
-import { Job } from "../view-models/job";
-import { User } from "../view-models/user";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "app-dashboard",
@@ -15,23 +12,24 @@ import { User } from "../view-models/user";
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent {
-  jobs: Array<Job>;
-  users: Array<User>;
+  jobs: any;
+  users: any;
 
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private jobService: JobService,
     private router: Router
   ) {
     jobService.getJobs().subscribe(data => (this.jobs = data));
-    userService.getUsers().subscribe(data => (this.users = data));
+    authService.getUsers().subscribe(data => (this.users = data));
   }
+  
+  // TODO: Rafactor
+  // showJobDetail(id: number) {
+  //   this.router.navigate(["/job-detail", id, "detail"]);
+  // }
 
-  showJobDetail(id: number) {
-    this.router.navigate(["/job-detail", id, "detail"]);
-  }
-
-  showUserDetail(id: number) {
-    this.router.navigate(["/profile-detail", id, "detail"]);
-  }
+  // showUserDetail(id: number) {
+  //   this.router.navigate(["/profile", id, "detail"]);
+  // }
 }

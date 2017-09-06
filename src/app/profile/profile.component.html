@@ -1,26 +1,44 @@
+<navbar></navbar>
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <h3>Profile</h3>
+
+      <table id="userList">
+        <thead>
+          <tr>
+            <th style="width: 100%"><h4>{{user.name}}'s Profile</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><h4><b>Name:</b> {{user.name}}</h4></td>
+          </tr>
+          <tr>
+            <td><h4><b>Username:</b> {{ user.username}}</h4></td>
+          </tr>
+          <tr>
+            <td><h4><b>Email:</b> {{ user.email }}</h4></td>
+          </tr>
+          <tr>
+            <td><h4><b>User Type:</b> {{ user.role }}</h4></td>
+          </tr>                                        
+        </tbody>
+      </table>
     </div>
     <div class="col-md-4"></div>
   </div>
 
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <h4>Name: {{user.name}}</h4><br />
-      <h4>Username: {{user.username}}</h4><br /> 
-      <h4>Email: {{user.email}}</h4><br />
-      <h4>Acct. Type: {{user.role}}</h4><br />
-      <br />
-
-      <div class="editButton">
-        <button type="button" class="btn btn-primary" routerLink="/edit-profile">Edit Profile</button>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <br />
+          <div class="editButton">
+              <button type="button" class="btn btn-primary" routerLink="/edit-profile">Edit Profile</button>
+          </div>
       </div>
-    </div>
-    <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
   </div>
-</div>
 
+</div>

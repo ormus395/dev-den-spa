@@ -18,30 +18,33 @@ import { ProfileComponent } from "./profile/profile.component";
 import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 import { SkillsComponent } from './skills/skills.component';
 import { JobService } from './services/job.service';
-import { AuthGuard } from './services/auth-guard';
+import { AuthGuard } from './services/auth.guard';
 import { JobAdminComponent } from './job-admin/job-admin.component';
-import { AuthService } from './services/auth-service';
+import { AuthService } from './services/auth.service';
+import { ValidateService } from './services/validate.service';
 import { SettingsComponent } from './settings/settings.component';
 import { UserService } from './services/user.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuService } from './services/menu.service';
 import { ScreenService } from './services/screen.service';
 import { HomeComponent } from './home/home.component';
-import { JobEditComponent } from './job-edit/job-edit.component';
+import { EditJobComponent } from './edit-job/edit-job.component';
 
 export const appRoutes: Routes = [
   { path: "register", component: RegisterUserComponent }, 
   { path: "login", component: LoginComponent },
+  { path: "home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] }, 
   { path: "job-list", component: JobListComponent, canActivate: [AuthGuard] },  
   { path: "job-detail/:id/:operation", component: JobDetailComponent, canActivate: [AuthGuard] }, 
-  { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard] },  
+  { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard] }, 
+  { path: "edit-job", component: EditJobComponent, canActivate: [AuthGuard] },
   { path: "job-post", component: JobPostComponent, canActivate: [AuthGuard] },  
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },  
   { path: "edit-profile", component: EditProfileComponent, canActivate: [AuthGuard] },  
   { path: "skills", component: SkillsComponent, canActivate: [AuthGuard] },
-  { path: "", component: LoginComponent }, 
-  { path: "**", component: LoginComponent }
+  { path: "", component: HomeComponent }, 
+  { path: "**", component: HomeComponent }
 ];
 
 @NgModule({
@@ -53,6 +56,7 @@ export const appRoutes: Routes = [
     RegisterUserComponent, 
     ProfileComponent, 
     EditProfileComponent, 
+    EditJobComponent,    
     JobDetailComponent, 
     JobPostComponent, 
     JobListComponent, 
@@ -60,7 +64,7 @@ export const appRoutes: Routes = [
     JobAdminComponent, 
     SettingsComponent, 
     NavbarComponent, 
-    HomeComponent, JobEditComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

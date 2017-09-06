@@ -16,6 +16,36 @@
     padding-right: 20px;
 }
 
+#searchBox {
+    min-width: 250px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.navbar-text:hover {
+    color: #4dff00;
+}
+
+p {
+    margin-top: 36px;
+}
+
+ul.nav a:hover { 
+    color: #4dff00 !important; 
+}
+
+ul.nav a:focus { 
+    color: #4dff00 !important; 
+}
+
+ul.nav a:active { 
+    color: #4dff00 !important; 
+}
+
+.navbar:hover {
+    color: #4dff00;
+}
+
 .title-bar-small {
     flex-grow: 1;
     display: flex;
@@ -37,6 +67,15 @@ span {
     font-size: 25px;
     line-height: 50px;
 }
+
+.glyphicon:hover {
+    color: #4dff00;
+}
+
+nav:hover {
+    color: #4dff00;
+}
+
 
 #logo {
     margin-top: 5px;

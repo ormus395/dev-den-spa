@@ -2,8 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
-import { UserService } from "../services/user.service";
-import { AuthService } from '../services/auth-service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: "app-register-user",
@@ -23,7 +22,6 @@ export class RegisterUserComponent implements OnInit{
 
   constructor(
     private authService: AuthService,
-    private userService: UserService, 
     private router: Router) {}
 
   ngOnInit(){}
@@ -37,7 +35,7 @@ export class RegisterUserComponent implements OnInit{
       password: this.password
     }    
     
-    this.userService.registerUser(user).subscribe(data => {
+    this.authService.registerUser(user).subscribe(data => {
       console.log(data);
       if(data.success){
         this.router.navigate(['/login']);

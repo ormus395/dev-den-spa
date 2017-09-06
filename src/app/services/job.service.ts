@@ -18,14 +18,22 @@ export class JobService {
     return this.http.get("http://localhost:3000/jobs").map(res => res.json());
   }
 
-  getJob(id: number): Observable<Job> {
-    var job = this.job.find(c => c.id == id);
-    return Observable.of(job);
-  }
+  //TODO Refactor
+  // getJob(id) {
+  //   let headers = new Headers();
+  //   headers.append("Content-Type", "application/json");
+  //   headers.append('Authorization', localStorage.getItem('id_token'));    
+  //   return this.http
+  //     .get("http://localhost:3000/jobs/" + id, {
+  //       headers: headers
+  //     })
+  //     .map(res => res.json());
+  // }
 
   addJob(job) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
+    headers.append('Authorization', localStorage.getItem('id_token'));
     return this.http
       .post("http://localhost:3000/jobs", job, {
         headers: headers
@@ -33,23 +41,23 @@ export class JobService {
       .map(res => res.json());
   }
 
-  deleteJob(job) {
+  deleteJob(id) {
+    let headers = new Headers();
+    headers.append('Authorization', localStorage.getItem('id_token'));
+    return this.http.delete('http://localhost:3000/jobs/' + id, {headers: headers})
+      .map(res => res.json());
+  }
+
+
+  updateJob(id) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
+    headers.append('Authorization', localStorage.getItem('id_token'));    
     return this.http
-      .post("http://localhost:3000/jobs", job, {
+      .patch("http://localhost:3000/jobs/" + id, {
         headers: headers
       })
       .map(res => res.json());
   }
 
-  updateJob(job) {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    return this.http
-      .post("http://localhost:3000/jobs", job, {
-        headers: headers
-      })
-      .map(res => res.json());
-  }
 }

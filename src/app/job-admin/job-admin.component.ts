@@ -11,14 +11,17 @@ import { Job } from '../view-models/job';
 })
 export class JobAdminComponent {
 
-  jobs: Array<Job>;
+  jobs: any[];
   deleteError: string;
   deleteId: number;
   isDeleting = false;
 
   constructor(private jobService: JobService, 
               private router: Router) {
-    jobService.getJobs().subscribe((data) => this.jobs = data);
+    jobService.getJobs().subscribe(data => {
+      console.log(data)
+      this.jobs = data;
+    });
   }
 
   cancelDelete() {
@@ -26,17 +29,35 @@ export class JobAdminComponent {
     this.deleteId = null;
   }
 
+  title: string;
+  type: string;
+  salary: string;
+  details: string;
   createJob() {
-    this.router.navigate(['/job-detail', 0, 'create']);
+    const job = {
+      title: this.title,
+      type: this.type,
+      salary: this.salary,
+      details: this.details
+    }
+
+    this.jobService.addJob(job).subscribe(data => {
+      console.log(localStorage.getItem('id_token'));
+      console.log(data);
+      if(data.success) {
+        alert('Job Posted')
+        this.router.navigate(['/dashboard']);
+      }
+    })
+
   }
 
-  deleteJob(id: number) {
-    this.isDeleting = true;
-    this.jobService.deleteJob(id).subscribe(
-      c => this.cancelDelete(),
-      err => { this.deleteError = err; this.isDeleting = false; }
-    );
-  }
+    onDeleteClick(id){
+        this.jobService.deleteJob(id).subscribe(data => {
+          console.log(localStorage.getItem('id_token'));
+          console.log(data);
+        })
+    }
 
   deleteJobQuestion(id: number) {
     this.deleteError = null;

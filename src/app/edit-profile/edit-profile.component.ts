@@ -1,51 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
-import { UserService } from '../services/user.service';
-// import { UserApi } from "../../fw/users/user-api";
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: "app-edit-profile",
   templateUrl: "./edit-profile.component.html",
   styleUrls: ["./edit-profile.component.css"]
 })
-export class EditProfileComponent {
-  formError: string;
-  submitting = false;
-  message: string;
-
+export class EditProfileComponent implements OnInit {
+  user: Object;
   name: string;
   username: string;
   role: string;
   email: string;
 
-  constructor(private userService: UserService,
-              private router: Router) {}
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
-  onSubmit(updateForm: NgForm) {
+  ngOnInit() {
+    this.authService.getProfile().subscribe(data => {
+      console.log(data.user);
+      this.user = data.user;
+    });
+  }
+
+  onSubmit() {
     const user = {
       name: this.name,
       username: this.username, 
-      role: this.role,
-      email: this.email
+      email: this.email,
+      role: this.role
     };
-
-    if (updateForm.valid) {
-      console.log("submitting...", updateForm);
-      this.submitting = true;
-      this.formError = null;
-
-      this.userService.updateUser(user).subscribe(data => {
-        if (data.success) {
-          this.message = "Updating Profile...";
-          this.router.navigate(["/profile-detail"]);
-        } else {
-          this.message = "Update failed...";
-          this.router.navigate(["/profile-detail"]);
-        }
-      });
-
-    }
+      this.authService.updateUser(user).subscribe(user => {
+        console.log(user);
+        this.router.navigate(["/profile"]);
+    });
   }
+
+  onDelete() {
+    this.authService.deleteUser().subscribe(data => {
+      // console.log(data);
+      localStorage.clear();
+      this.router.navigate(['/register']);
+    })
+  }
+
 }
