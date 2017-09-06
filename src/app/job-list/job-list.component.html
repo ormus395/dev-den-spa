@@ -7,21 +7,21 @@
       <table id="jobList">
         <thead>
           <tr>
-            <!-- <th style="width: 50px">Id</th> -->
             <th style="width: 250px">Title</th>
             <th style="width: 150px">Type</th>
             <th style="width: 150px">Salary</th>
             <th style="width: 250px">Employer</th>
+            <th style="width: 500px">Details</th>
             <th style="min-width: 100px"></th>
           </tr>
         </thead>
         <tbody>
           <tr id="jobRow" *ngFor="let row of jobs">
-            <!-- <td>{{ row.id }}</td> -->
             <td>{{ row.title}}</td>
             <td>{{ row.type }}</td>
             <td>{{ row.salary}}</td>
             <td>{{ row.employer }}</td>
+            <td>{{ row.details }}</td>
             <td><button class="btn btn-sm btn-primary" (click)="applyToJob(row.id)">Apply</button>
             </td>
           </tr>
@@ -29,3 +29,5 @@
       </table>
   </div>
 </div>
+
+

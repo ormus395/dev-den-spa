@@ -21,4 +21,11 @@ export abstract class UserApi {
       username: string, 
       password: string
     ) => Observable<any>;
+
+  // updateProfile: (
+  //     name: string,
+  //     username: string,
+  //     role: string,
+  //     email: string
+  // ) => Observable<any>;
 }

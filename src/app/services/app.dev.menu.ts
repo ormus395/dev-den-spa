@@ -1,6 +1,6 @@
-import { MenuItem } from '../fw/services/menu.service';
+import { MenuItem } from '../../fw/services/menu.service';
 
-export let initialMenuItems: Array<MenuItem> = [
+export let devMenu: Array<MenuItem> = [
     { 
         text: "Dashboard", 
         icon: "glyphicon-dashboard", 
@@ -10,7 +10,7 @@ export let initialMenuItems: Array<MenuItem> = [
     { 
         text: "Profile", 
         icon: "glyphicon-user", 
-        route: "/authenticated/profile", 
+        route: "/authenticated/profile-detail", 
         submenu: null 
     }, 
     { 
@@ -19,13 +19,6 @@ export let initialMenuItems: Array<MenuItem> = [
         route: "/authenticated/job-list",
         submenu: null
     },
-
-    { 
-        text: "Job Admin", 
-        icon: "glyphicon-cog",  
-        route: "/authenticated/job-admin", 
-        submenu: null
-    }, 
     { 
         text: "Skills", 
         icon: "glyphicon-education", 

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { AppDataService } from "../services/app-data.service";
+import { JobService } from "../services/job.service";
 import { Job } from "../view-models/job";
 
 @Component({
@@ -12,12 +12,12 @@ import { Job } from "../view-models/job";
 export class JobListComponent {
   jobs: Array<Job>;
 
-  constructor(private dataService: AppDataService, 
+  constructor(private jobService: JobService, 
               private router: Router) {
-    dataService.getJobs().subscribe(data => (this.jobs = data));
+    jobService.getJobs().subscribe(data => (this.jobs = data));
   }
 
   showJobDetail(id: number) {
-    this.router.navigate(["/authenticated/job-detail", id, "detail"]);
+    this.router.navigate(["/job-detail", id, "detail"]);
   }
 }

@@ -1,3 +1,15 @@
 .container-fluid {
     text-align: center;
 }
+
+a {
+    float: left;
+}
+
+button {
+    float: center;
+}
+
+label {
+    float: left;
+}

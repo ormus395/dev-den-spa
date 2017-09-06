@@ -39,7 +39,9 @@ td, th {
 }
 
 #createBtn {
-  margin-left: 75px;
+  text-align: center;     
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #header {

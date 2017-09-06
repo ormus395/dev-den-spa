@@ -21,5 +21,9 @@ h4 {
 }
 
 button.btn-primary {
+    float: left;
+}
+
+#login {
     float: right;
 }

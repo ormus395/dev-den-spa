@@ -1,3 +1,60 @@
-.container-fluid {
+.container {
     text-align: center;
+}
+
+:host {
+    display: block;
+}
+
+table { 
+  border-collapse: collapse; 
+  margin: 10px;
+  margin-top: 20px;
+}
+
+tr:nth-of-type(even) { 
+  background: #cccfd4; 
+}
+
+tr:nth-of-type(odd):hover { 
+    background: #35b200;
+    color: #ffffff;    
+}
+
+tr:nth-of-type(even):hover { 
+    background: #35b200;
+    color: #ffffff;     
+}
+
+th { 
+  background: #0c1d37; 
+  color: #cccccc; 
+  font-weight: bold; 
+}
+
+td, th { 
+  padding: 6px; 
+  border: 1px solid #cccccc; 
+  text-align: left; 
+}
+
+.btn.btn-sm {
+    width: 80px;
+}
+
+#createBtn {
+  text-align: center;     
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header {
+  text-align: center;     
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#jobList{
+    margin-left: auto;
+    margin-right: auto;
 }

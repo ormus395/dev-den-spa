@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FrameworkConfigService, FrameworkConfigSettings } from "../fw/services/framework-config.service";
 import { MenuService } from '../fw/services/menu.service';
-import { initialMenuItems } from './app.menu';
+import { devMenu } from './app.dev.menu';
+import { empMenu } from './app.emp.menu';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,6 @@ export class AppComponent {
                private menuService: MenuService){
 
     let config: FrameworkConfigSettings = { 
-      socialIcons: [
-        { imageFile: 'assets/social-fb-bw.png', alt: 'Facebook', link: 'http://www.facebook.com'},
-        { imageFile: 'assets/social-google-bw.png', alt: 'Google +', link: 'http://www.google.com' },
-        { imageFile: 'assets/social-twitter-bw.png', alt: 'Twitter', link: 'http://www.twitter.com' }
-      ],
       showLanguageSelector: true, 
       showUserControls: true, 
       showStatusBar: true, 
@@ -28,7 +24,7 @@ export class AppComponent {
 
     frameworkConfigService.configure(config);
 
-    menuService.items = initialMenuItems;
+    menuService.items = devMenu;
 
   }
 }

@@ -26,3 +26,7 @@ button {
 .message {
     float: right;
 }
+
+#register {
+    float: left;
+}

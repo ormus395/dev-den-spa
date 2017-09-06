@@ -5,7 +5,6 @@
   </div>
 
   <div class="row">
-    <!-- <div class="col-md-12"> -->
         <table id="jobList">
           <thead>
             <tr>
@@ -14,6 +13,7 @@
               <th style="width: 150px">Type</th>
               <th style="width: 150px">Salary</th>
               <th style="width: 200px">Employer</th>
+              <th style="width: 500px">Details</th>
               <th style="width: 185px"></th>
             </tr>
           </thead>
@@ -24,10 +24,8 @@
               <td>{{ row.type }}</td>
               <td>{{ row.salary}}</td>
               <td>{{ row.employer }}</td>
+              <td>{{ row.details }}</td>
               <td *ngIf="row.id != deleteId">
-                <!-- <button class="btn btn-sm btn-primary" (click)="showJobDetail(row.id)">
-                  Detail
-              </button>&nbsp; -->
                 <button class="btn btn-sm btn-warning" (click)="editJob(row.id)">
                   Edit
               </button>&nbsp;&nbsp;
@@ -47,7 +45,6 @@
             </tr>
           </tbody>
         </table>
-      <!-- </div> -->
   </div>
   <div id="createBtn">
     <button class="btn btn-primary" (click)="createJob()">Add Job</button>

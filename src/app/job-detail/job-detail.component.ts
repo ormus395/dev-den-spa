@@ -1,18 +1,17 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { AppDataService } from '../services/app-data.service';
-import { Job } from '../view-models/job';
 import { FieldDefinition } from '../../fw/dynamic-forms/field-definition';
+import { JobService } from '../services/job.service';
+import { Job } from '../view-models/job';
 
 @Component({
-  selector: 'app-job-detail',
-  templateUrl: './job-detail.component.html',
-  styleUrls: ['./job-detail.component.css']
+  selector: "app-job-detail",
+  templateUrl: "./job-detail.component.html",
+  styleUrls: ["./job-detail.component.css"]
 })
 export class JobDetailComponent implements OnInit {
-
-  job : Job;
+  job: Job;
   jobDefinition: Array<FieldDefinition> = [
     {
       key: 'id',
@@ -48,47 +47,63 @@ export class JobDetailComponent implements OnInit {
       isId: false,
       label: 'Employer',
       required: true
+    },
+    {
+      key: 'details',
+      type: 'string',
+      isId: false,
+      label: "Details",
+      required: true
     }
   ];
   errorMessage: string;
   operation: string;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private dataService: AppDataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private jobService: JobService
+  ) {}
 
-  createJob(job: Job){
+  createJob(job: Job) {
     job.id = 0;
     this.errorMessage = null;
-    this.dataService.createJob(job).subscribe(
-      c => this.router.navigate(['authenticated/job-admin']),
-      err => this.errorMessage = 'Error creating Job...'
-    );
+    this.jobService
+      .addJob(job)
+      .subscribe(
+        c => this.router.navigate(["/job-admin"]),
+        err => (this.errorMessage = "Error adding Job...")
+      );
   }
 
   ngOnInit() {
-    this.operation = this.route.snapshot.params['operation'];
+    this.operation = this.route.snapshot.params["operation"];
 
-    if(this.operation === 'create'){
-      this.job = { id: 0, title: '', type: '', salary: '', employer: ''};
-    }
-    else {
-      this.dataService.getJob(this.route.snapshot.params['id'])
-        .subscribe((job: Job) => this.job = job);
+    if (this.operation === "create") {
+      this.job = {
+        id: 0,
+        title: "",
+        type: "",
+        salary: "",
+        employer: "",
+        details: ""
+      };
+    } else {
+      this.jobService
+        .getJob(this.route.snapshot.params["id"])
+        .subscribe((job: Job) => (this.job = job));
     }
   }
 
   updateJob(job: Job) {
     this.errorMessage = null;
-    this.dataService.updateJob(job).subscribe(
-      c => this.router.navigate(['/authenticated/job-admin']),
-      err => this.errorMessage = 'Error updating Job...'
-    );
+    this.jobService
+      .updateJob(job)
+      .subscribe(
+        c => this.router.navigate(["/job-admin"]),
+        err => (this.errorMessage = "Error updating Job...")
+      );
   }
 
-  applyToJob(job: Job) {
-      
-  }
-
+  applyToJob(job: Job) {}
 }
-

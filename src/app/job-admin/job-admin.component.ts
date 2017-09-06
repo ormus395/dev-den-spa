@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppDataService } from '../services/app-data.service';
+import { JobService } from '../services/job.service';
 import { Job } from '../view-models/job';
 
 @Component({
@@ -16,9 +16,9 @@ export class JobAdminComponent {
   deleteId: number;
   isDeleting = false;
 
-  constructor(private dataService: AppDataService, 
+  constructor(private jobService: JobService, 
               private router: Router) {
-    dataService.getJobs().subscribe((data) => this.jobs = data);
+    jobService.getJobs().subscribe((data) => this.jobs = data);
   }
 
   cancelDelete() {
@@ -27,12 +27,12 @@ export class JobAdminComponent {
   }
 
   createJob() {
-    this.router.navigate(['/authenticated/job-detail', 0, 'create']);
+    this.router.navigate(['/job-detail', 0, 'create']);
   }
 
   deleteJob(id: number) {
     this.isDeleting = true;
-    this.dataService.deleteJob(id).subscribe(
+    this.jobService.deleteJob(id).subscribe(
       c => this.cancelDelete(),
       err => { this.deleteError = err; this.isDeleting = false; }
     );
@@ -44,11 +44,11 @@ export class JobAdminComponent {
   }
 
   editJob(id: number) {
-    this.router.navigate(['/authenticated/job-detail', id, 'edit']);
+    this.router.navigate(['/job-detail', id, 'edit']);
   }
 
   showJobDetail(id: number) {
-    this.router.navigate(['/authenticated/job-detail', id, 'detail']);
+    this.router.navigate(['/job-detail', id, 'detail']);
   }
 
 }

@@ -6,5 +6,5 @@ export interface Job {
     type: string;
     salary: string;
     employer: string;
-    
+    details: string;
 }

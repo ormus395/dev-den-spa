@@ -1,0 +1,34 @@
+<div class="register-form">
+  <img src="/assets/login-logo2.png" width="400" />
+  <h4>Register Account</h4>
+  <form (submit)="onRegister()">
+
+    <div class="form-group">
+      <label for="role">Account Type:</label>
+      <select class="form-control" id="role" [(ngModel)]="role" name="role" type="select">
+        <option value="developer">Developer</option>
+        <option value="employer">Employer</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" name="name" type="text" placeholder="Name"  [(ngModel)]="name">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" name="username" type="text" placeholder="Username" [(ngModel)]="username">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" name="email" type="email" placeholder="Email" [(ngModel)]="email">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" name="password" type="password" placeholder="Password" [(ngModel)]="password">
+    </div>
+
+    <button id="login" [routerLink]="['/login']" class="btn btn-success">Existing User Login</button>
+    <input type="submit" value="Register" class="btn btn-primary">
+
+  </form>
+</div>
