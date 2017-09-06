@@ -20,7 +20,7 @@ a {
     line-height: 32px;
 }
 button {
-    float: right;
+    float: left;
 }
 
 .message {
@@ -28,5 +28,5 @@ button {
 }
 
 #register {
-    float: left;
+    float: right;
 }

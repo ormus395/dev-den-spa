@@ -3,14 +3,13 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 
 import { UserService } from "../services/user.service";
 import { User } from "../view-models/user";
-// import { FieldDefinition } from "../../fw/dynamic-forms/field-definition";
 
 @Component({
-  selector: "app-profile-detail",
-  templateUrl: "./profile-detail.component.html",
-  styleUrls: ["./profile-detail.component.css"]
+  selector: "app-profile",
+  templateUrl: "./profile.component.html",
+  styleUrls: ["./profile.component.css"]
 })
-export class ProfileDetailComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   user: User;
 
   errorMessage: string;

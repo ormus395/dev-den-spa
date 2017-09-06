@@ -14,7 +14,7 @@ import { RegisterUserComponent } from "./register-user/register-user.component";
 import { JobDetailComponent } from "./job-detail/job-detail.component";
 import { JobPostComponent } from "./job-post/job-post.component";
 import { JobListComponent } from "./job-list/job-list.component";
-import { ProfileDetailComponent } from "./profile-detail/profile-detail.component";
+import { ProfileComponent } from "./profile/profile.component";
 import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 import { SkillsComponent } from './skills/skills.component';
 import { JobService } from './services/job.service';
@@ -24,6 +24,10 @@ import { AuthService } from './services/auth-service';
 import { SettingsComponent } from './settings/settings.component';
 import { UserService } from './services/user.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MenuService } from './services/menu.service';
+import { ScreenService } from './services/screen.service';
+import { HomeComponent } from './home/home.component';
+import { JobEditComponent } from './job-edit/job-edit.component';
 
 export const appRoutes: Routes = [
   { path: "register", component: RegisterUserComponent }, 
@@ -33,7 +37,7 @@ export const appRoutes: Routes = [
   { path: "job-detail/:id/:operation", component: JobDetailComponent, canActivate: [AuthGuard] }, 
   { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard] },  
   { path: "job-post", component: JobPostComponent, canActivate: [AuthGuard] },  
-  { path: "profile-detail", component: ProfileDetailComponent, canActivate: [AuthGuard] },  
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },  
   { path: "edit-profile", component: EditProfileComponent, canActivate: [AuthGuard] },  
   { path: "skills", component: SkillsComponent, canActivate: [AuthGuard] },
   { path: "", component: LoginComponent }, 
@@ -47,14 +51,16 @@ export const appRoutes: Routes = [
     LoginComponent,
     AuthenticatedUserComponent,
     RegisterUserComponent, 
-    ProfileDetailComponent, 
+    ProfileComponent, 
     EditProfileComponent, 
     JobDetailComponent, 
     JobPostComponent, 
     JobListComponent, 
     SkillsComponent, 
     JobAdminComponent, 
-    SettingsComponent, NavbarComponent
+    SettingsComponent, 
+    NavbarComponent, 
+    HomeComponent, JobEditComponent
   ],
   imports: [
     BrowserModule,

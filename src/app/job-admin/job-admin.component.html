@@ -12,7 +12,6 @@
               <th style="width: 250px">Title</th>
               <th style="width: 150px">Type</th>
               <th style="width: 150px">Salary</th>
-              <th style="width: 200px">Employer</th>
               <th style="width: 500px">Details</th>
               <th style="width: 185px"></th>
             </tr>
@@ -23,9 +22,8 @@
               <td>{{ row.title}}</td>
               <td>{{ row.type }}</td>
               <td>{{ row.salary}}</td>
-              <td>{{ row.employer }}</td>
               <td>{{ row.details }}</td>
-              <td *ngIf="row.id != deleteId">
+              <td>
                 <button class="btn btn-sm btn-warning" (click)="editJob(row.id)">
                   Edit
               </button>&nbsp;&nbsp;
@@ -33,7 +31,7 @@
                   Delete
               </button>
               </td>
-              <td *ngIf="row.id === deleteId && !isDeleting">
+              <!-- <td *ngIf="row.id === deleteId && !isDeleting">
                 Delete this Job?
                 <button class="btn btn-sm" (click)="cancelDelete()">Cancel</button>
                 <button class="btn btn-sm btn-danger" (click)="deleteJob(row.id)">Delete</button>
@@ -41,7 +39,7 @@
               </td>
               <td *ngIf="row.id === deleteId && isDeleting">
                 Deleting...
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>

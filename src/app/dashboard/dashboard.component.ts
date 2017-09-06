@@ -9,10 +9,6 @@ import { UserService } from "../services/user.service";
 import { Job } from "../view-models/job";
 import { User } from "../view-models/user";
 
-// TODO Deprecate
-// import { AppDataService } from "../services/app-data.service";
-// import { UserService } from '../services/user.service';
-
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
