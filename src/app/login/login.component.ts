@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit{
-  message: string;
+  message = "";
 
   username: string;
   password: string;

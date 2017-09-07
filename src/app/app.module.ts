@@ -19,7 +19,7 @@ import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 import { SkillsComponent } from './skills/skills.component';
 import { JobService } from './services/job.service';
 import { AuthGuard } from './services/auth.guard';
-import {RoleGuard} from './services/role.guard';
+import { RoleGuard } from './services/role.guard';
 import { JobAdminComponent } from './job-admin/job-admin.component';
 import { AuthService } from './services/auth.service';
 import { ValidateService } from './services/validate.service';
