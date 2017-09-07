@@ -41,6 +41,10 @@ text-align: left;
 background-color: #cccccc;
 }
 
+.addJob {
+  background-color: #cccccc;
+}
+
 #createBtn {
 text-align: center;     
   margin-left: auto;
