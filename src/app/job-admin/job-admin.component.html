@@ -20,35 +20,59 @@
           </thead>
           <tbody>
             <tr id="jobRow" *ngFor="let row of jobs">
-              <td>{{ row.id }}</td>
+              <td>{{ row._id }}</td>
               <td>{{ row.title}}</td>
               <td>{{ row.type }}</td>
               <td>{{ row.salary}}</td>
               <td>{{ row.author}}</td>              
               <td>{{ row.details }}</td>
-              <td>
-                <button class="btn btn-sm btn-warning" (click)="editJob(row.id)">
-                  Edit
-              </button>&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" (click)="deleteJobQuestion(row.id)">
-                  Delete
-              </button>
+              <td><button class="btn btn-danger" (click)="onDeleteClick(row._id)" 
+                onclick="window.location.reload()">Delete</button>
+                <button class="btn btn-warning" (click)="toggleEdit()">Edit</button>
               </td>
-              <!-- <td *ngIf="row.id === deleteId && !isDeleting">
-                Delete this Job?
-                <button class="btn btn-sm" (click)="cancelDelete()">Cancel</button>
-                <button class="btn btn-sm btn-danger" (click)="deleteJob(row.id)">Delete</button>
-                <p *ngIf="deleteError">{{ deleteError }}</p>
-              </td>
-              <td *ngIf="row.id === deleteId && isDeleting">
-                Deleting...
-              </td> -->
             </tr>
           </tbody>
         </table>
+              <div *ngIf="isEditActive">
+                <form (submit)="editJob(row._id)">
+                  <tr>
+                  <td><input [(ngModel)]="title" placeholder="title" name="title" type="text"></td>
+                  <td><input [(ngModel)]="type" placeholder="type" name="type" type="text"></td>
+                  <td><input [(ngModel)]="salary" placeholder="salary" name="salary" type="text"></td>
+                  <td><input [(ngModel)]="details" placeholder="details" name="details" type="text"></td>
+                  <td><input type="submit" value="Save" class="btn btn-primary"></td>
+                  </tr>
+                </form>
+              </div>
   </div>
   <div id="createBtn">
-    <button class="btn btn-primary" (click)="createJob()">Add Job</button>
+    <button (click)="toggle()"class="btn btn-primary">Add Job</button>
+    <div class="addJob container" *ngIf="isActive">
+    <form (submit)="createJob()">
+      <div class="form-group">
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control" [(ngModel)]="title" placeholder="Title" name="title" type="text">
+        </div>
+          <label for="selectType">Job Type</label>
+          <select class="form-control" [(ngModel)]="type" name="type" id="selectType">
+            <option value="part-time">Part-Time</option>
+            <option value="full-time">Full-Time</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Salary</label>
+          <input class="form-control" [(ngModel)]="salary" placeholder="Salary" name="salary" type="text">
+        </div>
+        <div class="form-group">
+          <label>Details</label>
+          <textarea class="form-control" [(ngModel)]="details" name="details" rows="4" cols="50">
+          </textarea>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    </div>
+
   </div>  
 
 </div>

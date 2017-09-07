@@ -16,6 +16,8 @@ export class JobAdminComponent {
   deleteId: number;
   isDeleting = false;
   message: string;
+  isActive: boolean = false;
+  isEditActive: boolean = false;
 
   constructor(private jobService: JobService, 
               private router: Router) {
@@ -25,16 +27,19 @@ export class JobAdminComponent {
     });
   }
 
-  cancelDelete() {
-    this.isDeleting = false;
-    this.deleteId = null;
-  }
-
   title: string;
   type: string;
   salary: string;
   author: string;
   details: string;
+
+  toggle() {
+    this.isActive = !this.isActive;
+  }
+
+  toggleEdit() {
+    this.isEditActive = !this.isEditActive;
+  }
 
   createJob() {
     const job = {
@@ -60,6 +65,11 @@ export class JobAdminComponent {
         this.jobService.deleteJob(id).subscribe(data => {
           console.log(localStorage.getItem('id_token'));
           console.log("delete: "+data);
+          for(let i =0; i < this.jobs.length; i++) {
+                if(this.jobs[i].id == id) {
+                    this.jobs.splice(i,1);
+                }
+            }
         })
     }
 
@@ -68,8 +78,21 @@ export class JobAdminComponent {
     this.deleteId = id;
   }
 
-  editJob(id: number) {
-    this.router.navigate(['/job-detail', id, 'edit']);
+  editJob(id) {
+    const job = {
+      title: this.title,
+      type: this.type,
+      salary: this.salary,
+      author: this.author,
+      details: this.details
+    }
+    this.jobService.updateJob(id, job).subscribe(data => {
+      if(data) {
+        alert('job updated');
+      } else {
+        alert('error');
+      }
+    })
   }
 
   showJobDetail(id: number) {
