@@ -19,6 +19,7 @@ import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 import { SkillsComponent } from './skills/skills.component';
 import { JobService } from './services/job.service';
 import { AuthGuard } from './services/auth.guard';
+import { RoleGuard } from './services/role.guard';
 import { JobAdminComponent } from './job-admin/job-admin.component';
 import { AuthService } from './services/auth.service';
 import { ValidateService } from './services/validate.service';
@@ -29,7 +30,6 @@ import { MenuService } from './services/menu.service';
 import { ScreenService } from './services/screen.service';
 import { HomeComponent } from './home/home.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
-import { FooterComponent } from './footer/footer.component';
 
 export const appRoutes: Routes = [
   { path: "register", component: RegisterUserComponent }, 
@@ -38,7 +38,7 @@ export const appRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] }, 
   { path: "job-list", component: JobListComponent, canActivate: [AuthGuard] },  
   { path: "job-detail/:id/:operation", component: JobDetailComponent, canActivate: [AuthGuard] }, 
-  { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard] }, 
+  { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard, RoleGuard] }, 
   { path: "edit-job", component: EditJobComponent, canActivate: [AuthGuard] },
   { path: "job-post", component: JobPostComponent, canActivate: [AuthGuard] },  
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },  
@@ -65,7 +65,7 @@ export const appRoutes: Routes = [
     JobAdminComponent, 
     SettingsComponent, 
     NavbarComponent, 
-    HomeComponent, FooterComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +78,8 @@ export const appRoutes: Routes = [
     UserService,
     AuthGuard,
     JobService,
-    AuthService
+    AuthService,
+    RoleGuard
   ],
   bootstrap: [ AppComponent ]
 })
