@@ -29,6 +29,7 @@ import { MenuService } from './services/menu.service';
 import { ScreenService } from './services/screen.service';
 import { HomeComponent } from './home/home.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
+import { FooterComponent } from './footer/footer.component';
 
 export const appRoutes: Routes = [
   { path: "register", component: RegisterUserComponent }, 
@@ -64,7 +65,7 @@ export const appRoutes: Routes = [
     JobAdminComponent, 
     SettingsComponent, 
     NavbarComponent, 
-    HomeComponent
+    HomeComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
