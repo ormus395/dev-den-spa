@@ -75,4 +75,34 @@ export class JobAdminComponent {
         })
     }
 
+<<<<<<< HEAD
 }
+=======
+  deleteJobQuestion(id: number) {
+    this.deleteError = null;
+    this.deleteId = id;
+  }
+
+  editJob(id) {
+    const job = {
+      title: this.title,
+      type: this.type,
+      salary: this.salary,
+      author: this.author,
+      details: this.details
+    }
+    this.jobService.updateJob(id, job).subscribe(data => {
+      if(data) {
+        alert('job updated');
+      } else {
+        alert('error');
+      }
+    })
+  }
+
+  showJobDetail(id: number) {
+    this.router.navigate(['/job-detail', id, 'detail']);
+  }
+
+}
+>>>>>>> 7dc86d6bc17cdf6f6583b5ed9db334c5c1b47179
