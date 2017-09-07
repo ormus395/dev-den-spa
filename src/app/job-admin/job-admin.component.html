@@ -19,36 +19,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr id="jobRow" *ngFor="let row of jobs">
-              <td>{{ row._id }}</td>
-              <td>{{ row.title}}</td>
-              <td>{{ row.type }}</td>
-              <td>{{ row.salary}}</td>
-              <td>{{ row.author}}</td>              
-              <td>{{ row.details }}</td>
-              <td><button class="btn btn-danger" (click)="onDeleteClick(row._id)" 
+            <tr id="jobRow" *ngFor="let job of jobs">
+              <!-- DO NOT CHANGE BACK TO ROW!! -->
+              <td>{{ job._id }}</td>
+              <td>{{ job.title}}</td>
+              <td>{{ job.type }}</td>
+              <td>{{ job.salary}}</td>
+              <td>{{ job.author}}</td>              
+              <td>{{ job.details }}</td>
+              <td><button class="btn btn-danger" (click)="onDeleteClick(job._id)" 
                 onclick="window.location.reload()">Delete</button>
-                <button class="btn btn-warning" (click)="toggleEdit()">Edit</button>
+                <button class="btn btn-primary" (click)="toggle()" (click)="onEditClick(job._id)">Edit</button>
               </td>
             </tr>
           </tbody>
         </table>
-              <div *ngIf="isEditActive">
-                <form (submit)="editJob(row._id)">
-                  <tr>
-                  <td><input [(ngModel)]="title" placeholder="title" name="title" type="text"></td>
-                  <td><input [(ngModel)]="type" placeholder="type" name="type" type="text"></td>
-                  <td><input [(ngModel)]="salary" placeholder="salary" name="salary" type="text"></td>
-                  <td><input [(ngModel)]="details" placeholder="details" name="details" type="text"></td>
-                  <td><input type="submit" value="Save" class="btn btn-primary"></td>
-                  </tr>
-                </form>
-              </div>
   </div>
   <div id="createBtn">
     <button (click)="toggle()"class="btn btn-primary">Add Job</button>
     <div class="addJob container" *ngIf="isActive">
-    <form (submit)="createJob()">
+      <h4>Add or Edit Job</h4>
+    <form (submit)="onSubmit(isEdit)">
       <div class="form-group">
         <div class="form-group">
           <label>Title</label>
@@ -76,5 +67,3 @@
   </div>  
 
 </div>
-
-<div class="footer">Copyright &copy; 2017 Dev:den Development. All Rights Reserved.</div>  

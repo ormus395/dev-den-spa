@@ -49,12 +49,12 @@ export class JobService {
   }
 
 
-  updateJob(id, job) {
+  updateJob(id,job) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append('Authorization', localStorage.getItem('id_token'));    
     return this.http
-      .patch("http://localhost:3000/jobs/" + id, job, {
+      .put("http://localhost:3000/jobs/" + id, job, {
         headers: headers
       })
       .map(res => res.json());

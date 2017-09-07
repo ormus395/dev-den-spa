@@ -95,15 +95,6 @@ export class JobDetailComponent implements OnInit {
     }
   }
 
-  updateJob(job: Job) {
-    // this.errorMessage = null;
-    // this.jobService
-    //   .updateJob(job)
-    //   .subscribe(
-    //     c => this.router.navigate(["/job-admin"]),
-    //     err => (this.errorMessage = "Error updating Job...")
-    //   );
-  }
 
   applyToJob(job: Job) {}
 }
