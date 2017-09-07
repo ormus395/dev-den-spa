@@ -12,12 +12,14 @@ import { Job } from '../view-models/job';
 export class JobAdminComponent {
 
   jobs: any[];
-  deleteError: string;
-  deleteId: number;
-  isDeleting = false;
-  message: string;
+  id: any;
+  title: string;
+  type: string;
+  salary: string;
+  author: string;
+  details: string;
   isActive: boolean = false;
-  isEditActive: boolean = false;
+  isEdit: boolean = false;
 
   constructor(private jobService: JobService, 
               private router: Router) {
@@ -27,21 +29,17 @@ export class JobAdminComponent {
     });
   }
 
-  title: string;
-  type: string;
-  salary: string;
-  author: string;
-  details: string;
-
   toggle() {
     this.isActive = !this.isActive;
   }
 
-  toggleEdit() {
-    this.isEditActive = !this.isEditActive;
+    onEditClick(id) {
+    this.isEdit = true;
+    this.id = id;
+    console.log(id);
   }
 
-  createJob() {
+  onSubmit(isEdit) {
     const job = {
       title: this.title,
       type: this.type,
@@ -49,16 +47,20 @@ export class JobAdminComponent {
       author: this.author,
       details: this.details
     }
-
-    this.jobService.addJob(job).subscribe(data => {
-      console.log(localStorage.getItem('id_token'));
-      console.log(data);
-      if(data.success) {
-        this.message = 'Job Posted';
-        this.router.navigate(['/dashboard']);
-      }
-    })
-
+    if(isEdit) {
+      console.log(this.id)
+      this.jobService.updateJob(this.id, job).subscribe(data => {
+        this.router.navigate(['/dashboard'])
+      })
+    } else {
+      this.jobService.addJob(job).subscribe(data => {
+        console.log(localStorage.getItem('id_token'));
+        console.log(data);
+        if(data.success) {
+          this.router.navigate(['/dashboard']);
+        }
+      })
+    }
   }
 
     onDeleteClick(id){
@@ -66,37 +68,11 @@ export class JobAdminComponent {
           console.log(localStorage.getItem('id_token'));
           console.log("delete: "+data);
           for(let i =0; i < this.jobs.length; i++) {
-                if(this.jobs[i].id == id) {
-                    this.jobs.splice(i,1);
-                }
+            if(this.jobs[i]._id == id) {
+              this.jobs.splice(i,1);
             }
+          }
         })
     }
-
-  deleteJobQuestion(id: number) {
-    this.deleteError = null;
-    this.deleteId = id;
-  }
-
-  editJob(id) {
-    const job = {
-      title: this.title,
-      type: this.type,
-      salary: this.salary,
-      author: this.author,
-      details: this.details
-    }
-    this.jobService.updateJob(id, job).subscribe(data => {
-      if(data) {
-        alert('job updated');
-      } else {
-        alert('error');
-      }
-    })
-  }
-
-  showJobDetail(id: number) {
-    this.router.navigate(['/job-detail', id, 'detail']);
-  }
 
 }
