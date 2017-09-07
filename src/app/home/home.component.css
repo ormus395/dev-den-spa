@@ -80,9 +80,11 @@ h2 {
     color: #0c1d37;
 	box-shadow: 6px 6px 6px 2px darkgray;    
 }
+
 #cardRow {
     margin-left: 90px;
 }
+
 .footer {
     width: 100%;
     padding-left: 25px;

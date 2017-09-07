@@ -1,3 +1,7 @@
+.container-flex {
+    min-height: 785px;
+}
+
 h4 {
     text-align: center;
 }
@@ -38,3 +42,15 @@ table {
     border: 1px solid #cccccc; 
     text-align: left; 
   }
+
+  .footer {
+    width: 100%;
+    padding-left: 25px;
+    padding-top: 10px;
+    color: #4dff00;
+    background-color: #0c1d37;
+    min-height: 40px;    
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
