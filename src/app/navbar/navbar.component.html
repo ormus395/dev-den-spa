@@ -1,15 +1,15 @@
  
   <!--Large Screen Title Bar-->
-  <div *screenLarge class="title-bar">
+  <!-- <div *screenLarge class="title-bar">
     <a href="http://localhost:4200"><div id="logo"></div></a>
     <div class="menu-area">
       <app-menu *ngIf="!menuService.isVertical">
       </app-menu>
     </div>
-  </div>
+  </div> -->
 
   <!--Small Screen Title Bar-->
-<div *screenBelowLarge class="title-bar-small">
+<!-- <div *screenBelowLarge class="title-bar-small">
     <span class="glyphicon glyphicon-menu-hamburger"
       (click)="menuService.toggleLeftSideMenu()">
     </span>
@@ -17,14 +17,15 @@
        <a href="http://localhost:4200"><div id="small_logo"></div></a>
     </div>
     <span class="glyphicon glyphicon-option-vertical"></span>
-  </div>
+  </div> -->
 
-<!-- <nav class="navbar navbar-inverse" cursor="pointer">
+<nav class="navbar navbar-inverse" cursor="pointer">
     <div class="container-fluid">
         <div class="navbar-header">
             <a routerLink="/"><div id="logo"></div></a>
         </div>
         <ul class="nav navbar-nav">
+            <li><a routerLink="/"><span class="glyphicon glyphicon-home"></span>Home</a></li>            
             <li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span>Register</a></li>          
             <li *ngIf="!authService.loggedIn()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>       
             <li *ngIf="authService.loggedIn()"><a (click)="logout()" routerLink="/login"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li> 
@@ -39,8 +40,7 @@
             <li><a *ngIf="roleGuard.canActivate()" routerLink="/job-admin"><span class="glyphicon glyphicon-cog"></span>Job Admin</a></li>      
         </ul>
     </div>
-</nav> -->
+</nav>
       
 
 
-<!-- <li><a routerLink="/"><span class="glyphicon glyphicon-home"></span>Home</a></li> -->
