@@ -8,7 +8,7 @@
         <form (submit)="onSubmit()" class="edit-form">
       
           <div class="form-group">
-            <label for="role">Account Type:</label>
+            <label for="role">Account Type</label>
             <select class="form-control" id="role" [(ngModel)]="role" name="role" type="select" >
               <option value="developer">Developer</option>
               <option value="employer">Employer</option>
@@ -29,10 +29,9 @@
       
           <div class="form-group">
             <input class="form-control" name="email" type="email" placeholder={{user.email}} [(ngModel)]="email">
-          </div>
-          
-          <button id="cancel" [routerLink]="['/profile']" class="btn btn-success">Cancel</button>
-          <input type="submit" value="Save" class="btn btn-primary">
+          </div>          
+          <input id="submit" type="submit" value="Save" class="btn btn-success">
+          <button id="cancel" [routerLink]="['/profile']" class="btn btn-warning">Cancel</button>          
           <button id="delete" [routerLink]="['/register']" (click)="onDelete()" class="btn btn-danger">Delete</button>
         </form>
       </div>

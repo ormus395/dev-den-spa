@@ -37,6 +37,15 @@ export class AuthService {
   getUsers() {
     return this.http.get("http://localhost:3000/users").map(res => res.json());
   }
+
+  getDevelopers() {
+    return this.http.get("http://localhost:3000/users/developers").map(res => res.json());
+  }
+
+  getEmployers() {
+    return this.http.get("http://localhost:3000/users/employers").map(res => res.json());
+  }
+
   //TODO Refactor
   // getUser() {
   //   return this.http.get("http://localhost:3000/users/").map(res => res.json());

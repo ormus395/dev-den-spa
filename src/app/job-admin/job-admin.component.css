@@ -1,5 +1,6 @@
 .container {
-  min-height: 800px;
+  text-align: center;
+  min-height: 825px;
 }
 
 :host {
@@ -41,15 +42,11 @@ text-align: left;
   width: 80px;
 }
 
-.addJob {
-background-color: #cccccc;
+.form-group {
+  text-align: left;
 }
 
-.addJob {
-  background-color: #cccccc;
-}
-
-#createBtn {
+#editJob {
 text-align: center;     
   margin-left: auto;
   margin-right: auto;
@@ -68,12 +65,24 @@ text-align: center;
 
 .footer {
   width: 100%;
-  padding-left: 25px;
+  padding-left: 50px;
   padding-top: 10px;
   color: #4dff00;
   background-color: #0c1d37;
   min-height: 40px;    
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
+}
+
+#cancel {
+  float: right;
+}
+
+#submit {
+  float: left;
+}
+
+#addJob {
+  float: left;
 }

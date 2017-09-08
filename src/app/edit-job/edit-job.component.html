@@ -1,6 +1,52 @@
 <navbar></navbar>
-<p>
-  job-edit works!
-</p>
+
+<div class="container-flex">
+  <div class="editJob container">
+
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-md-4"></div>
+      <div class="col-xs-10 col-sm-10 col-md-4">
+        <h3>Edit Job</h3>
+      </div>
+      <div class="col-xs-10 col-sm-10 col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10 col-sm-10 col-md-4"></div>
+        <div class="col-xs-10 col-sm-10 col-md-4">
+            <form (submit)="onSubmit()">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control" [(ngModel)]="title" name="title" type="text" placeholder="New Title">
+                  </div>
+                    <label for="selectType">Job Type</label>
+                    <select class="form-control" [(ngModel)]="type" name="type" id="selectType">
+                      <option value="part-time">Part-Time</option>
+                      <option value="full-time">Full-Time</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Salary</label>
+                    <input class="form-control" [(ngModel)]="salary" name="salary" type="text" placeholder="New Salary">
+                  </div>
+                  <div class="form-group">
+                    <label>Employer</label>
+                    <input class="form-control" [(ngModel)]="author" name="author" type="text" placeholder="New Employer">
+                  </div>
+                  <div class="form-group">
+                    <label>Details</label>
+                    <textarea class="form-control" [(ngModel)]="details" name="details" rows="4" cols="50" placeholder="Updated Details">
+                    </textarea>
+                  </div>
+                  <input id="submit" class="btn btn-success" type="submit" value="submit">                  
+                  <button id="cancel" class="btn btn-primary" routerLink="/job-admin">Cancel</button>  
+              </form>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-4"></div>
+      </div>
+
+  </div>
+</div>
 
 <div class="footer">Copyright &copy; 2017 Dev:den Development. All Rights Reserved.</div>  

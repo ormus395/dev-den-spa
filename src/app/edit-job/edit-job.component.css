@@ -1,11 +1,40 @@
+.container-flex {
+    text-align: center;
+    min-height: 750px;
+}
+
 .footer {
     width: 100%;
-    padding-left: 25px;
+    padding-left: 50px;
     padding-top: 10px;
     color: #4dff00;
     background-color: #0c1d37;
     min-height: 40px;    
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+}
+
+.form-group {
+    text-align: left;
+}
+
+th { 
+    background: #0c1d37; 
+    color: #cccccc; 
+    font-weight: bold; 
+}
+    
+td, th { 
+    padding: 6px; 
+    border: 1px solid #cccccc; 
+    text-align: left; 
+}
+
+#save {
+    float: left;
+}
+
+#cancel {
+    float: right;
 }

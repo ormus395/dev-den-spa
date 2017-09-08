@@ -29,10 +29,10 @@ import { PanelComponent } from './panels/panel/panel.component';
   ],
   declarations: [
     FrameworkBodyComponent, 
-    ContentComponent, 
     TitleBarComponent, 
     TopBarComponent, 
-    StatusBarComponent, 
+    StatusBarComponent,
+    ContentComponent,      
     ScreenLarge, 
     ScreenBelowLarge, 
     MenuComponent, 

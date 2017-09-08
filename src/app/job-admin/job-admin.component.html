@@ -1,69 +1,77 @@
 <navbar></navbar>
 <div class="container">
 
-  <div id="header" class="row">
-      <h3>Job Admin</h3>
+  <div class="row" *ngIf="!isEdit">
+    <div id="header" class="row">
+        <h3>Jobs Administration</h3>
+    </div>
+    <table id="jobList">
+      <thead>
+        <tr>
+          <th style="width: 250px">Title</th>
+          <th style="width: 150px">Type</th>
+          <th style="width: 150px">Salary</th>
+          <th style="width: 200px">Employer</th>              
+          <th style="width: 500px">Details</th>
+          <th style="width: 185px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="jobRow" *ngFor="let job of jobs">
+          <!-- DO NOT CHANGE BACK TO ROW!! -->
+          <td>{{ job.title}}</td>
+          <td>{{ job.type }}</td>
+          <td>{{ job.salary}}</td>
+          <td>{{ job.author}}</td>              
+          <td>{{ job.details }}</td>
+          <td><button class="btn btn-danger" (click)="onDeleteClick(job._id)" 
+            (click)="window.location.reload()">Delete</button>
+            <button class="btn btn-primary" (click)="toggle()" (click)="onEditClick(job._id)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <button id="addJob" routerLink="/job-post" class="btn btn-primary">Add Job</button>
   </div>
+  <br />
 
-  <div class="row">
-        <table id="jobList">
-          <thead>
-            <tr>
-              <th style="width: 50px">Id</th>
-              <th style="width: 250px">Title</th>
-              <th style="width: 150px">Type</th>
-              <th style="width: 150px">Salary</th>
-              <th style="width: 200px">Employer</th>              
-              <th style="width: 500px">Details</th>
-              <th style="width: 185px"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="jobRow" *ngFor="let job of jobs">
-              <!-- DO NOT CHANGE BACK TO ROW!! -->
-              <td>{{ job._id }}</td>
-              <td>{{ job.title}}</td>
-              <td>{{ job.type }}</td>
-              <td>{{ job.salary}}</td>
-              <td>{{ job.author}}</td>              
-              <td>{{ job.details }}</td>
-              <td><button class="btn btn-danger" (click)="onDeleteClick(job._id)" 
-                onclick="window.location.reload()">Delete</button>
-                <button class="btn btn-primary" (click)="toggle()" (click)="onEditClick(job._id)">Edit</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-  </div>
-  <div id="createBtn">
-    <button (click)="toggle()"class="btn btn-primary">Add Job</button>
-    <div class="addJob container" *ngIf="isActive">
-      <h4>Add or Edit Job</h4>
-    <form (submit)="onSubmit(isEdit)">
-      <div class="form-group">
-        <div class="form-group">
-          <label>Title</label>
-          <input class="form-control" [(ngModel)]="title" placeholder="Title" name="title" type="text">
-        </div>
-          <label for="selectType">Job Type</label>
-          <select class="form-control" [(ngModel)]="type" name="type" id="selectType">
-            <option value="part-time">Part-Time</option>
-            <option value="full-time">Full-Time</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Salary</label>
-          <input class="form-control" [(ngModel)]="salary" placeholder="Salary" name="salary" type="text">
-        </div>
-        <div class="form-group">
-          <label>Details</label>
-          <textarea class="form-control" [(ngModel)]="details" name="details" rows="4" cols="50">
-          </textarea>
-        </div>
-        <input class="btn btn-primary" type="submit" value="Submit">
-    </form>
+  <div id="editJob" *ngIf="isActive">
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-md-4"></div>
+      <div id="header" class="col-xs-10 col-sm-10 col-md-4"><h4>Edit Job</h4></div>
+      <div class="col-xs-10 col-sm-10 col-md-4"></div>
     </div>
 
-  </div>  
+    <div class="row">
+        <div class="col-xs-10 col-sm-10 col-md-4"></div>
+        <div class="col-xs-10 col-sm-10 col-md-4">
+          <form (submit)="onSubmit(isEdit)">
+            <div class="form-group">
+                <label for="selectType">Update Job Type</label>
+                <select class="form-control" [(ngModel)]="type" name="type" id="selectType">
+                  <option value="part-time">Part-Time</option>
+                  <option value="full-time">Full-Time</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input class="form-control" [(ngModel)]="title" placeholder="Update Title" name="title" type="text">
+              </div>
+              <div class="form-group">
+                <input class="form-control" [(ngModel)]="salary" placeholder="Update Salary" name="salary" type="text">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" [(ngModel)]="details"  placeholder="Update Details" name="details" rows="4" cols="50">
+                </textarea>
+              </div>
+              <input id="submit" class="btn btn-success" type="submit" value="Submit" onClick="window.location.reload()">              
+              <button id="cancel" class="btn btn-warning" (click)="toggle()" onClick="window.location.reload()">Cancel</button>
+          </form>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-4"></div>
+    </div>
+  </div>
 
 </div>
+
+<div class="footer">Copyright &copy; 2017 Dev:den Development. All Rights Reserved.</div>  

@@ -28,7 +28,7 @@ export class AppComponent {
 
     frameworkConfigService.configure(config);
 
-    menuService.items = initialMenuItems;
+    menuService.items = menuItems;
 
   }
 }

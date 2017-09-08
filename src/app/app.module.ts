@@ -30,20 +30,29 @@ import { MenuService } from './services/menu.service';
 import { ScreenService } from './services/screen.service';
 import { HomeComponent } from './home/home.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import { MenuComponent } from './menu/menu.component';
+import { ScreenLarge } from './directives/screen-large.directive';
+import { ScreenBelowLarge } from './directives/screen-below-large.directive';
 
 export const appRoutes: Routes = [
+  // Open routes
+  { path: "home", component: HomeComponent },
   { path: "register", component: RegisterUserComponent }, 
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
+
+  // Protected routes  
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] }, 
   { path: "job-list", component: JobListComponent, canActivate: [AuthGuard] },  
-  { path: "job-detail/:id/:operation", component: JobDetailComponent, canActivate: [AuthGuard] }, 
+  { path: "job-detail", component: JobDetailComponent, canActivate: [AuthGuard] }, 
   { path: "job-admin", component: JobAdminComponent, canActivate: [AuthGuard, RoleGuard] }, 
   { path: "edit-job", component: EditJobComponent, canActivate: [AuthGuard] },
   { path: "job-post", component: JobPostComponent, canActivate: [AuthGuard] },  
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },  
   { path: "edit-profile", component: EditProfileComponent, canActivate: [AuthGuard] },  
   { path: "skills", component: SkillsComponent, canActivate: [AuthGuard] },
+
+  // Default routes
   { path: "", component: HomeComponent }, 
   { path: "**", component: HomeComponent }
 ];
@@ -65,7 +74,11 @@ export const appRoutes: Routes = [
     JobAdminComponent, 
     SettingsComponent, 
     NavbarComponent, 
-    HomeComponent
+    HomeComponent,
+    ScreenLarge, 
+    ScreenBelowLarge, 
+    MenuComponent, 
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +92,9 @@ export const appRoutes: Routes = [
     AuthGuard,
     JobService,
     AuthService,
-    RoleGuard
+    RoleGuard,
+    ScreenService,
+    MenuService
   ],
   bootstrap: [ AppComponent ]
 })

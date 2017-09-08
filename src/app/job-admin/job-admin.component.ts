@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { JobService } from '../services/job.service';
@@ -29,6 +29,10 @@ export class JobAdminComponent {
     });
   }
 
+  ngOnInit(){
+    
+  }
+
   toggle() {
     this.isActive = !this.isActive;
   }
@@ -50,14 +54,14 @@ export class JobAdminComponent {
     if(isEdit) {
       console.log(this.id)
       this.jobService.updateJob(this.id, job).subscribe(data => {
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/job-admin'])
       })
     } else {
       this.jobService.addJob(job).subscribe(data => {
         console.log(localStorage.getItem('id_token'));
         console.log(data);
         if(data.success) {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/job-admin']);
         }
       })
     }

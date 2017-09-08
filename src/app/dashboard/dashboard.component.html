@@ -11,34 +11,58 @@
 
   <div id="header" class="row">
     <div class="col-xs-10 col-sm-10 col-md-6">
-      <h4>Developers</h4>
+      <h4>Registered Developers</h4>
       <table id="userList">
         <thead>
           <tr>
-            <th style="width: 250px">Name</th>
-            <th style="width: 250px">Email</th>            
-            <th style="width: 150px">User Type</th>
+            <th style="min-width: 125px">Name</th>
+            <th style="min-width: 125px">Username</th>            
+            <th style="min-width: 200px">Email</th>            
+            <th style="min-width: 85px"></th>  
           </tr>
         </thead>
         <tbody>
-          <tr id="userRow" *ngFor="let row of users">
+          <tr id="userRow" *ngFor="let row of developers">
             <td>{{ row.fname}} {{ row.lname}}</td>
+            <td>{{ row.username }}</td>            
             <td>{{ row.email }}</td>
-            <td>{{ row.role}}</td>            
+            <td><a href="mailto:{{row.email}}?Subject=Job%20Opening" target="_top">Send Mail</a></td>                      
           </tr>
         </tbody>
       </table>
+      <br />
+      <h4>Registered Employers</h4>      
+      <table id="userList">
+          <thead>
+            <tr>
+              <th style="min-width: 125px">Name</th>
+              <th style="min-width: 125px">Username</th>            
+              <th style="min-width: 200px">Email</th>            
+              <th style="min-width: 85px"></th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="userRow" *ngFor="let row of employers">
+              <td>{{ row.fname}} {{ row.lname}}</td>
+              <td>{{ row.username }}</td>            
+              <td>{{ row.email }}</td>
+              <td><a href="mailto:{{row.email}}?Subject=Job%20Inquiry" target="_top">Send Mail</a></td>                    
+            </tr>
+          </tbody>
+        </table>
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-2"></div>
+    <div class="col-xs-10 col-sm-10 col-md-1"></div>
     <div class="col-xs-10 col-sm-10 col-md-6">
+
       <h4>Open Jobs</h4>
       <table id="jobList">
         <thead>
           <tr>
-            <th style="width: 250px">Title</th>
-            <th style="width: 150px">Type</th>
-            <th style="width: 150px">Salary</th>
-            <th style="width: 150px">Employer</th>            
+            <th style="min-width: 200px">Title</th>
+            <th style="min-width: 85px">Type</th>
+            <th style="min-width: 85px">Salary</th>
+            <th style="min-width: 125px">Employer</th>  
+            <th style="min-width: 85px"></th>                       
           </tr>
         </thead>
         <tbody>
@@ -46,12 +70,14 @@
             <td>{{ row.title}}</td>
             <td>{{ row.type }}</td>
             <td>{{ row.salary}}</td>
-            <td>{{ row.author}}</td>            
+            <td>{{ row.author}}</td>     
+            <td><button class="btn btn-sm btn-primary">Apply</button>                  
           </tr>
         </tbody>
       </table>
-
     </div>
+
+    
   </div>
 
 </div>

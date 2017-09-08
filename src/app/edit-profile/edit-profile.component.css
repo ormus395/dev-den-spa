@@ -7,21 +7,35 @@ a {
     float: left;
 }
 
-button {
-    float: center;
-}
-
 label {
     float: left;
 }
+
 .footer {
     width: 100%;
-    padding-left: 25px;
+    padding-left: 50px;
     padding-top: 10px;
     color: #4dff00;
     background-color: #0c1d37;
     min-height: 40px;    
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+}
+
+
+/* #submit {
+    float: left;
+} */
+
+/* #cancel {
+    float: right;
+} */
+
+/* #delete {
+    float: right;
+} */
+
+button {
+    float: center;
 }

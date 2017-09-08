@@ -14,17 +14,23 @@ import { AuthService } from "../services/auth.service";
 export class DashboardComponent {
   jobs: any;
   users: any;
+  developers: any;
+  employers: any;
 
   constructor(
     private authService: AuthService,
+    private developerService: AuthService,
+    private employerService: AuthService,
     private jobService: JobService,
     private router: Router
   ) {
     jobService.getJobs().subscribe(data => (this.jobs = data));
     authService.getUsers().subscribe(data => (this.users = data));
+    developerService.getDevelopers().subscribe(data => (this.developers = data));
+    employerService.getEmployers().subscribe(data => (this.employers = data));
   }
   
-  // TODO: Rafactor
+  // TODO: Refactor
   // showJobDetail(id: number) {
   //   this.router.navigate(["/job-detail", id, "detail"]);
   // }

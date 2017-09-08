@@ -17,7 +17,7 @@ tr:nth-of-type(even) {
   background: #cccfd4; 
 }
 
-tr:nth-of-type(odd):hover { 
+/* tr:nth-of-type(odd):hover { 
     background: #35b200;
     color: #ffffff;    
 }
@@ -25,7 +25,7 @@ tr:nth-of-type(odd):hover {
 tr:nth-of-type(even):hover { 
     background: #35b200;
     color: #ffffff;     
-}
+} */
 
 th { 
   background: #0c1d37; 
@@ -62,12 +62,12 @@ td, th {
 
 .footer {
     width: 100%;
-    padding-left: 25px;
+    padding-left: 50px;
     padding-top: 10px;
     color: #4dff00;
     background-color: #0c1d37;
     min-height: 40px;    
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
 }
